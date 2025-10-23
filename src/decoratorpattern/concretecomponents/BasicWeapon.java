@@ -1,15 +1,20 @@
 package decoratorpattern.concretecomponents;
+
 import decoratorpattern.component.IWeapon;
 
-public class Axe implements IWeapon {
-    private String description = "Basic Axe";
-    private int damage = 15;
+public class BasicWeapon implements IWeapon {
+    private String description;
+    private int damage;
 
-    public void setName(String description){
+    public BasicWeapon(String description, int damage) {
         this.description = description;
+        this.damage = damage;
     }
 
-    public void setDamage(int damage){
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setDamage(int damage) {
         this.damage = damage;
     }
 

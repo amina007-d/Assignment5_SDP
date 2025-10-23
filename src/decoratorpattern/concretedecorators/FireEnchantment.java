@@ -1,22 +1,34 @@
 package decoratorpattern.concretedecorators;
+
 import decoratorpattern.component.IWeapon;
 import decoratorpattern.decorator.WeaponDecorator;
 
 public class FireEnchantment extends WeaponDecorator {
-    public FireEnchantment(IWeapon weapon) {
+    private String enchantmentName;
+    private int fireDamage;
+
+    public FireEnchantment(IWeapon weapon, String enchantmentName, int fireDamage) {
         super(weapon);
+        this.enchantmentName = enchantmentName;
+        this.fireDamage = fireDamage;
     }
 
-    private String enchantmentName = "Fire Enchantment";
-    private int fireDamage = 20;
-
-    public void setPoisonDamage(int fireDamage) {
-        this.fireDamage = fireDamage;
+    public String getEnchantmentName() {
+        return enchantmentName;
     }
 
     public void setEnchantmentName(String enchantmentName) {
         this.enchantmentName = enchantmentName;
     }
+
+    public int getFireDamage() {
+        return fireDamage;
+    }
+
+    public void setFireDamage(int fireDamage) {
+        this.fireDamage = fireDamage;
+    }
+
 
     @Override
     public String getDescription() {
@@ -28,3 +40,4 @@ public class FireEnchantment extends WeaponDecorator {
         return decoratedWeapon.getDamage() + fireDamage;
     }
 }
+

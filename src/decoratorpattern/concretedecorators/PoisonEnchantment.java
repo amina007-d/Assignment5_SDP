@@ -1,21 +1,32 @@
 package decoratorpattern.concretedecorators;
+
 import decoratorpattern.component.IWeapon;
 import decoratorpattern.decorator.WeaponDecorator;
 
 public class PoisonEnchantment extends WeaponDecorator {
-    public PoisonEnchantment(IWeapon weapon) {
+    private String enchantmentName;
+    private int poisonDamage;
+
+    public PoisonEnchantment(IWeapon weapon, String enchantmentName, int poisonDamage) {
         super(weapon);
+        this.enchantmentName = enchantmentName;
+        this.poisonDamage = poisonDamage;
     }
 
-    private String enchantmentName = "Poison Enchantment";
-    private int poisonDamage = 15;
-
-    public void setPoisonDamage(int poisonDamage) {
-        this.poisonDamage = poisonDamage;
+    public String getEnchantmentName() {
+        return enchantmentName;
     }
 
     public void setEnchantmentName(String enchantmentName) {
         this.enchantmentName = enchantmentName;
+    }
+
+    public int getPoisonDamage() {
+        return poisonDamage;
+    }
+
+    public void setPoisonDamage(int poisonDamage) {
+        this.poisonDamage = poisonDamage;
     }
 
     @Override
@@ -28,3 +39,4 @@ public class PoisonEnchantment extends WeaponDecorator {
         return decoratedWeapon.getDamage() + poisonDamage;
     }
 }
+

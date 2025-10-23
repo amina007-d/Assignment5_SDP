@@ -1,16 +1,19 @@
 package decoratorpattern;
 
 import decoratorpattern.component.IWeapon;
-import decoratorpattern.concretecomponents.Sword;
-import decoratorpattern.concretedecorators.FireEnchantment;
-import decoratorpattern.concretedecorators.IceEnchantment;
-import decoratorpattern.concretedecorators.PoisonEnchantment;
+import decoratorpattern.concretecomponents.*;
+import decoratorpattern.concretedecorators.*;
 
 public class Main {
     public static void main(String[] args) {
-        IWeapon weapon = new IceEnchantment(new PoisonEnchantment(new FireEnchantment(new Sword())));
-        System.out.println("Weapon: " + weapon.getDescription());
-        System.out.println("Damage: " + weapon.getDamage());
+        IWeapon sword = new BasicWeapon("Basic weapon", 10);
+        System.out.println(sword.getDescription() + "Damage: " + sword.getDamage());
+
+        IWeapon firesword = new FireEnchantment(sword, "FireEnchantment", 15);
+        System.out.println(firesword.getDescription() + "Damage: " + firesword.getDamage());
+
+        IWeapon icesword = new IceEnchantment(sword, "IceEnchantment", 10);
+        System.out.println(icesword.getDescription() + "Damage: " + icesword.getDamage());
 
     }
 }

@@ -1,16 +1,18 @@
 package facadepattern;
 
-import facadepattern.facade.SmartHomeFacade;
+import facadepattern.facade.RestaurantFacade;
+import facadepattern.subsystems.*;
 
 public class Main {
     public static void main(String[] args) {
-        SmartHomeFacade home = new SmartHomeFacade();
-        home.arriveHome();
-        home.leaveHome();
-        home.goodNight();
+        Kitchen kitchen = new Kitchen();
+        Waiter waiter = new Waiter();
+        Cashier billing = new Cashier();
+        Delivery delivery = new Delivery();
 
-        home.getLight().off();
-        home.getBlinds().close();
+        RestaurantFacade restaurant = new RestaurantFacade(kitchen, waiter, billing, delivery);
 
+        restaurant.dineIn("Pasta Carbonara", 12.99f);
+        restaurant.orderDelivery("Bahandi Chicken Combo", 10.50f, "Kabanbay Batyr 60/1");
     }
 }
