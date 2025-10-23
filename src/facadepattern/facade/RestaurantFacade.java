@@ -10,11 +10,11 @@ public class RestaurantFacade {
     private Cashier billing;
     private Delivery delivery;
 
-    public RestaurantFacade(Kitchen kitchen, Waiter waiter, Cashier billing, Delivery delivery) {
-        this.kitchen = kitchen;
-        this.waiter = waiter;
-        this.billing = billing;
-        this.delivery = delivery;
+    public RestaurantFacade() {
+        this.kitchen = new Kitchen();
+        this.waiter = new Waiter();
+        this.billing = new Cashier();
+        this.delivery = new Delivery();
     }
 
     public Kitchen getKitchen() {
@@ -44,6 +44,7 @@ public class RestaurantFacade {
     public Delivery getDelivery() {
         return delivery;
     }
+
     public void setDelivery(Delivery delivery) {
         this.delivery = delivery;
     }
